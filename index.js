@@ -1,7 +1,7 @@
-var http = require('http'),
+const http = require('http'),
     connect = require('connect'),
     httpProxy = require('http-proxy');
-var roundround = require('roundround');
+const roundround = require('roundround');
 const CacheClient = require('./cacheService');
 const downStreamServers = require('./downStreamServers');
 const { config } = require('./config');
@@ -16,18 +16,18 @@ const servers = services.map(service => service.address+':'+service.port)
 console.log('servers', servers);
 
 // var servers =  ['http://192.168.10.220:3000', 'http://192.168.10.220:3001', 'http://192.168.10.220:3002', 'http://192.168.10.220:3003' ]
-var nextServer = roundround(servers);
-var proxy = httpProxy.createProxyServer({
+const nextServer = roundround(servers);
+const proxy = httpProxy.createProxyServer({
     changeOrigin: true,
     secure: false,
     followRedirects: true,
-    selfHandleResponse : true
+    selfHandleResponse: true
 });
 proxy.on('error', function(e) {
     console.log('proxy error', e)
 });
 
-var app = connect();
+const app = connect();
 app.use(async function (req, res) {
     req.currentlySelectedTarget = 'http://'+nextServer();
     console.log('target', req.currentlySelectedTarget);
@@ -60,7 +60,7 @@ app.use(async function (req, res) {
                     res.end();
                 }
             });
-        });;
+        });
     }
 })
 
