@@ -15,7 +15,9 @@ proxy:
           port: 3002
         - address: "127.0.0.1"
           port: 3003
-
+# Specify load balancer strategy to use, if none is provided, default round robin will be used
+# values could be 'random' or 'roundrobin'
+strategy: 'roundrobin'
 # Specify if it shoule start sample downstreams servers or not
 startDownStreamServers: true
 # Cache life time for proxy
