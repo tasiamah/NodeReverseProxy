@@ -27,7 +27,7 @@ he second load balancer which is implemented uses a round-robin strategy. Recent
 On the server, the first request forwards to the downstream server listening on port 3000. The next three consecutive request forwards to user to the downstream ports listening on 3001, 3002, and 3003 respectively. These downstream services can be modified in downStreamServers. The functionality of the strategy has been tested thoroughly with Postman. This platform has many tools that simplify the testing of APIs and servers.
 
 ## In memory-cache
-The caching logic  implemented is compliant with http cache control. In addition, the Time-to-Live in-memory cache mechanism enhances performance. Time-to-Live (TTL) caches decouple the eviction mechanisms amongst objects by associating each object with a timer. When a timer expires, the corresponding object is evicted from the cache \cite{berger2014exact}. \\
+The caching logic  implemented is compliant with http cache control. In addition, the Time-to-Live in-memory cache mechanism enhances performance. Time-to-Live (TTL) caches decouple the eviction mechanisms amongst objects by associating each object with a timer. When a timer expires, the corresponding object is evicted from the cache. 
 The cache lifetime can be easily specified in proxy.yml file using the "proxyCacheTTLSeconds" property.
 
 ## Limitations
