@@ -1,7 +1,10 @@
+const roundRobin = require('./roundrobin');
+
 const utils = {
+    ...roundRobin,
     getRandomNumber: function(min, max) {
-        const rndInt = Math.floor(Math.random() * max) + min;
-        return rndInt;
+        //generating random number
+        return Math.floor(Math.random() * max) + min;
     },
     getRandomServer: function(servers) {
         const randNum = utils.getRandomNumber(1,servers.length) - 1;

@@ -2,6 +2,7 @@ const http = require('http');
 
 module.exports = {
     init: function() {
+        //sample down stream servers
         http.createServer(function (req, res) {
             handleResponse(req, res)
         }).listen(3000, function () {})

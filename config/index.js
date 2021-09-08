@@ -1,6 +1,7 @@
 const yaml = require('js-yaml');
 const fs   = require('fs');
 
+// Get document, or throw exception on error
 let doc;
 try {
     doc = yaml.load(fs.readFileSync('proxy.yml', 'utf8'));
